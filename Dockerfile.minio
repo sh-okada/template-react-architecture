@@ -1,0 +1,6 @@
+FROM minio/minio:RELEASE.2024-10-02T17-50-41Z
+
+COPY ./minio/create-bucket.sh /usr/local/bin/create-bucket.sh
+RUN chmod +x /usr/local/bin/create-bucket.sh
+
+ENTRYPOINT ["/bin/sh", "-c", "/usr/local/bin/create-bucket.sh & minio server /data --console-address :9001"]

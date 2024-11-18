@@ -1,0 +1,31 @@
+{
+    "name": "app",
+    "dockerComposeFile": ["docker-compose.yaml"],
+    "service": "app",
+    "workspaceFolder": "/workspace/template-react-architecture",
+    "forwardPorts": [3000, 6006],
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode",
+          "MS-CEINTL.vscode-language-pack-ja",
+          "ms-vsliveshare.vsliveshare",
+          "Prisma.prisma",
+          "bradlc.vscode-tailwindcss"
+        ],
+        "settings": {
+          "files.associations": {
+            "*.css": "tailwindcss"
+          },
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": [
+            "source.fixAll.eslint",
+            "source.addMissingImports"
+          ],
+          "typescript.preferences.importModuleSpecifier": "non-relative"
+        }
+      }
+    }
+  }
+  
