@@ -1,7 +1,6 @@
-import NextAuth from "next-auth"
-import Credentials from "next-auth/providers/credentials"
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 
- 
 const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
@@ -10,15 +9,10 @@ const { handlers, signIn, signOut, auth } = NextAuth({
         plainPassword: {},
       },
       authorize: async (credentials) => {
-        return null
+        return null;
       },
     }),
   ],
-})
+});
 
-export {
-  handlers,
-  signIn,
-  signOut,
-  auth
-}
+export { handlers, signIn, signOut, auth };
