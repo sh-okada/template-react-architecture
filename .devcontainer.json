@@ -2,7 +2,7 @@
   "name": "app",
   "dockerComposeFile": ["docker-compose.yaml"],
   "service": "app",
-  "workspaceFolder": "/workspace/template-react-architecture",
+  "workspaceFolder": "/workspace/template-react-architecture/app",
   "forwardPorts": [3000, 6006],
   "customizations": {
     "vscode": {

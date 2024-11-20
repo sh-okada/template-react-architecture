@@ -9,25 +9,3 @@ services:
       - .:/workspace/template-react-architecture
     environment:
       TZ: Asia/Tokyo
-      S3_ACCESS_KEY: zGhP4YJB5J7uV4i4xls6
-      S3_SECRET_KEY: 1zjBJRrsJ7Ag4bOqiQkwjqch8ykPS28GgNNZHMyS
-      S3_BUCKET: article-images
-      S3_REGION: ap-northeast-1
-      S3_ENDPOINT: http://minio:9000
-      S3_CLIENT_ENDPOINT: http://localhost:9000
-      AUTH_SECRET: 7IDKgywqzN9TDEA1efJNsMI3zHrPactqA3goYcIYCZ0=
-      DATABASE_URL: postgres://postgres:postgres@db/sample
-  minio:
-    container_name: minio
-    build:
-      context: .
-      dockerfile: Dockerfile.minio
-    ports:
-      - 9000:9000
-      - 9001:9001
-    environment:
-      MINIO_ROOT_USER: minio_root
-      MINIO_ROOT_PASSWORD: minio_password
-      ACCESS_KEY: zGhP4YJB5J7uV4i4xls6
-      SECRET_KEY: 1zjBJRrsJ7Ag4bOqiQkwjqch8ykPS28GgNNZHMyS
-      BUCKET: article-images
