@@ -1,5 +1,7 @@
+import { Button } from "@headlessui/react";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return <Button>ボタン</Button>;
 }
 
 export default App;
