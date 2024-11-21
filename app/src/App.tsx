@@ -1,4 +1,4 @@
-import { Button } from "@headlessui/react";
+import { Button } from "./components/ui/button";
 
 function App() {
   return <Button>ボタン</Button>;
