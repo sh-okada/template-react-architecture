@@ -1,5 +1,7 @@
-import { Button as HeadlessuiButton } from "@headlessui/react";
-import React from "react";
+import {
+  Button as HeadlessuiButton,
+  ButtonProps as HeadlessuiButtonProps,
+} from "@headlessui/react";
 
 type ButtonVariant = "fill" | "outline";
 type ButtonSize = "lg" | "md" | "sm";
@@ -51,7 +53,7 @@ const buttonSizeStyle: { [key in ButtonSize]: string } = {
   `,
 };
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = HeadlessuiButtonProps & {
   variant?: ButtonVariant;
   size?: ButtonSize;
 };

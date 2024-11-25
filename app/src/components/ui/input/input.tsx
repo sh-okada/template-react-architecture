@@ -1,4 +1,7 @@
-import { Input as HeadlessuiInput } from "@headlessui/react";
+import {
+  Input as HeadlessuiInput,
+  InputProps as HeadlessuiInputProps,
+} from "@headlessui/react";
 
 type InputBlockSize = "lg" | "md" | "sm";
 
@@ -26,7 +29,7 @@ const inputBlockSizeStyle: { [key in InputBlockSize]: string } = {
   `,
 };
 
-type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = HeadlessuiInputProps & {
   blockSize?: InputBlockSize;
   isError?: boolean;
 };
