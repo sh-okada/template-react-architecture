@@ -20,8 +20,8 @@ const buttonVariantStyle: { [key in ButtonVariant]: string } = {
     hover:underline
     active:bg-primary-700
     active:underline
-    data-disabled:bg-primary-100
-    data-disabled:text-primary-400
+    data-[disabled]:bg-primary-100
+    data-[disabled]:text-primary-400
   `,
   outline: `
     border
@@ -33,8 +33,8 @@ const buttonVariantStyle: { [key in ButtonVariant]: string } = {
     active:border-primary-800
     active:text-primary-800
     active:underline
-    data-disabled:border-primary-200
-    data-disabled:text-primary-200
+    data-[disabled]:border-primary-200
+    data-[disabled]:text-primary-200
   `,
 };
 

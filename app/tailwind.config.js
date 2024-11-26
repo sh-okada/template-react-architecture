@@ -2,9 +2,6 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    data: {
-      disabled: "disabled",
-    },
     extend: {},
     // https://uicolors.app/create #f7f7ed
     colors: {
