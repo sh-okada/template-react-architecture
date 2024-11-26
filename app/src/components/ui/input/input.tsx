@@ -13,8 +13,9 @@ const inputBaseStyle = (color: "primary" | "carmine") => `
   py-3
   border
   border-${color}-600
-  focus:outline-${color}-800
-  data-disabled:border-${color}-200
+  focus:outline-none
+  data-[focus]:border-${color}-800
+  data-[disabled]:border-${color}-200
 `;
 
 const inputBlockSizeStyle: { [key in InputBlockSize]: string } = {
