@@ -1,15 +1,12 @@
-// import { yup } from "../../../lib/yup";
+import { yup, InferType } from "../../../lib/yup";
 
-// type CreateQuestion = {
-//   title: string;
-//   doc: string;
-// };
+const createQuestionSchema = yup
+  .object({
+    title: yup.string().label("タイトル").required().min(5).max(200),
+    doc: yup.string().label("質問内容").required(),
+  })
+  .required();
 
-// const createQuestionSchema: yup.  = yup
-//   .object({
-//     title: yup.string().label("タイトル").required().min(5).max(200),
-//     doc: yup.string().label("質問内容").required(),
-//   })
-//   .required();
+type CreateQuestionData = InferType<typeof createQuestionSchema>;
 
-// export { createQuestionSchema, type CreateQuestionData };
+export { createQuestionSchema, type CreateQuestionData };

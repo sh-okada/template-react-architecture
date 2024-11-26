@@ -1,4 +1,5 @@
 import * as yupDefault from "yup";
+import { InferType } from "yup";
 
 yupDefault.setLocale({
   string: {
@@ -23,4 +24,4 @@ yupDefault.setLocale({
 
 const yup = yupDefault;
 
-export { yup };
+export { yup, type InferType };
