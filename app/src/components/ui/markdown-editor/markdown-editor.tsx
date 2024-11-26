@@ -1,4 +1,5 @@
 import {
+  EditorStyle,
   OnChangeDoc,
   useMarkdownEditor,
 } from "../../../hooks/use-markdown-editor";
@@ -7,6 +8,7 @@ type MarkdownEditorProps = Omit<React.ComponentProps<"div">, "ref"> & {
   doc: string;
   onChangeDoc: OnChangeDoc;
   placeholder?: string;
+  editorStyle?: EditorStyle;
 };
 
 const MarkdownEditor = ({
@@ -14,12 +16,14 @@ const MarkdownEditor = ({
   doc,
   onChangeDoc,
   placeholder,
+  editorStyle,
   ...props
 }: MarkdownEditorProps) => {
   const { editor } = useMarkdownEditor({
     doc: doc,
     onChangeDoc: onChangeDoc,
     placeholderText: placeholder,
+    editorStyle: editorStyle,
   });
 
   return (

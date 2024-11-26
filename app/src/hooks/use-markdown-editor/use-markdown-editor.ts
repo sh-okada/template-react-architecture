@@ -9,23 +9,33 @@ import {
 } from "@codemirror/commands";
 import { indentUnit } from "@codemirror/language";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
+import { StyleSpec } from "style-mod";
 
 type OnChangeDoc = (doc: string) => void;
+type EditorStyle = {
+  [selector: string]: StyleSpec;
+};
 
 type UseMarkdownEditorProps = {
   doc: string;
   onChangeDoc?: OnChangeDoc;
   placeholderText?: string;
+  editorStyle?: EditorStyle;
 };
 
 const useMarkdownEditor = ({
   doc,
   onChangeDoc,
   placeholderText = "",
+  editorStyle = {},
 }: UseMarkdownEditorProps) => {
   const editor = useRef(null);
   const [container, setContainer] = useState<HTMLDivElement>();
   const [view, setView] = useState<EditorView>();
+
+  const customEditorStyle = useMemo(() => {
+    return EditorView.theme(editorStyle);
+  }, [editorStyle]);
 
   const updateListener = useMemo(() => {
     return EditorView.updateListener.of((update: ViewUpdate) => {
@@ -50,8 +60,9 @@ const useMarkdownEditor = ({
         completeHTMLTags: false,
       }),
       updateListener,
+      customEditorStyle,
     ];
-  }, [placeholderText, updateListener]);
+  }, [placeholderText, updateListener, customEditorStyle]);
 
   useEffect(() => {
     if (editor.current) {
@@ -84,4 +95,9 @@ const useMarkdownEditor = ({
   };
 };
 
-export { useMarkdownEditor, type UseMarkdownEditorProps, type OnChangeDoc };
+export {
+  useMarkdownEditor,
+  type UseMarkdownEditorProps,
+  type OnChangeDoc,
+  type EditorStyle,
+};
