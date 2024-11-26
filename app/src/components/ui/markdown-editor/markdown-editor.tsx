@@ -1,13 +1,26 @@
-import { useMarkdownEditor } from "../../../hooks/use-markdown-editor";
+import {
+  OnChangeDoc,
+  useMarkdownEditor,
+} from "../../../hooks/use-markdown-editor";
 
 type MarkdownEditorProps = {
-  doc?: string;
+  doc: string;
+  onChangeDoc: OnChangeDoc;
+  placeholder?: string;
 };
 
-const MarkdownEditor = ({ doc = "" }: MarkdownEditorProps) => {
-  const { editor } = useMarkdownEditor({ doc: doc });
+const MarkdownEditor = ({
+  doc,
+  onChangeDoc,
+  placeholder,
+}: MarkdownEditorProps) => {
+  const { editor } = useMarkdownEditor({
+    doc: doc,
+    onChangeDoc: onChangeDoc,
+    placeholderText: placeholder,
+  });
 
   return <div ref={editor} />;
 };
 
-export { MarkdownEditor };
+export { MarkdownEditor, type MarkdownEditorProps };
