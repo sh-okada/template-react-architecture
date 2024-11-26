@@ -6,7 +6,7 @@ import {
 
 type MarkdownEditorProps = Omit<React.ComponentProps<"div">, "ref"> & {
   doc: string;
-  onChangeDoc: OnChangeDoc;
+  onChangeDoc?: OnChangeDoc;
   placeholder?: string;
   editorStyle?: EditorStyle;
 };

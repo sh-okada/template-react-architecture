@@ -17,12 +17,15 @@
     "@codemirror/state": "^6.4.1",
     "@codemirror/view": "^6.35.0",
     "@headlessui/react": "^2.2.0",
+    "@hookform/resolvers": "^3.9.1",
     "@lezer/highlight": "^1.2.1",
     "@types/markdown-it": "^14.1.2",
     "highlight.js": "^11.10.0",
     "markdown-it": "^14.1.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
