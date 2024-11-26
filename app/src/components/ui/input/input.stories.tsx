@@ -16,12 +16,13 @@ export const Default: Story = {};
 
 export const FieldInput: Story = {
   render: (args) => {
+    const { isError } = args;
     return (
       <Field>
         <Label>名前</Label>
         <Description>説明文</Description>
         <Input {...args} />
-        <HelperText>ヘルパーテキスト</HelperText>
+        <HelperText isError={isError}>ヘルパーテキスト</HelperText>
       </Field>
     );
   },
