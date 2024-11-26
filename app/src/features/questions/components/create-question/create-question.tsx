@@ -1,6 +1,4 @@
-import { Field } from "../../../../components/ui/field";
 import { Input } from "../../../../components/ui/input";
-import { Label } from "../../../../components/ui/label";
 import { MarkdownEditor } from "../../../../components/ui/markdown-editor";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -31,22 +29,21 @@ const CreateQuestion = ({ onSubmit }: CreateQuestionProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <Input
-          className="block"
-          blockSize="sm"
-          placeholder="タイトル"
-          {...register("title")}
-        />
-        <MarkdownEditor
-          doc={watch().doc}
-          onChangeDoc={(doc) => {
-            setValue("doc", doc);
-          }}
-          placeholder="..."
-        />
-        <Button type="submit">質問する</Button>
-      </div>
+      <Input
+        className="block mb-5"
+        blockSize="sm"
+        placeholder="タイトル"
+        {...register("title")}
+      />
+      <MarkdownEditor
+        className="mb-5"
+        doc={watch().doc}
+        onChangeDoc={(doc) => {
+          setValue("doc", doc);
+        }}
+        placeholder="..."
+      />
+      <Button type="submit">質問する</Button>
     </form>
   );
 };
