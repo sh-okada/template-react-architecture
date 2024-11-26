@@ -2,6 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./input";
 import { Label } from "../label";
 import { Field } from "../field";
+import { HelperText } from "../helper-text";
 
 const meta: Meta<typeof Input> = {
   component: Input,
@@ -18,6 +19,7 @@ export const FieldInput: Story = {
       <Field>
         <Label>名前</Label>
         <Input {...args} />
+        <HelperText>ヘルパーテキスト</HelperText>
       </Field>
     );
   },
