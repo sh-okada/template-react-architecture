@@ -1,20 +1,7 @@
-type HelperTextProps = React.ComponentProps<"p"> & {
-  invalid?: boolean;
-};
+type HelperTextProps = React.ComponentProps<"p">;
 
-const HelperText = ({
-  className,
-  invalid = false,
-  ...props
-}: HelperTextProps) => {
-  return (
-    <p
-      className={`text-xs ${invalid ? "text-carmine-600" : ""} ${
-        className ?? ""
-      }`}
-      {...props}
-    />
-  );
+const HelperText = ({ className, ...props }: HelperTextProps) => {
+  return <p className={`text-xs ${className ?? ""}`} {...props} />;
 };
 
 export { HelperText, type HelperTextProps };

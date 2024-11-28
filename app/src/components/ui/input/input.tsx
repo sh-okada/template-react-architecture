@@ -70,7 +70,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         <Maybe test={helperText}>
-          <HelperText invalid={invalid}>{helperText}</HelperText>
+          <HelperText className={invalid ? "text-carmine-600" : ""}>
+            {helperText}
+          </HelperText>
         </Maybe>
       </Field>
     );
