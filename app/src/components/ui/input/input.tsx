@@ -2,6 +2,7 @@ import {
   Input as HeadlessuiInput,
   InputProps as HeadlessuiInputProps,
 } from "@headlessui/react";
+import React from "react";
 
 type InputBlockSize = "lg" | "md" | "sm";
 
@@ -35,20 +36,18 @@ type InputProps = HeadlessuiInputProps & {
   isError?: boolean;
 };
 
-const Input = ({
-  blockSize = "md",
-  isError = false,
-  className,
-  ...props
-}: InputProps) => {
-  return (
-    <HeadlessuiInput
-      className={`${inputBaseStyle(isError ? "carmine" : "primary")} ${
-        inputBlockSizeStyle[blockSize]
-      } ${className ?? ""}`}
-      {...props}
-    />
-  );
-};
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ blockSize = "md", isError = false, className, ...props }, ref) => {
+    return (
+      <HeadlessuiInput
+        className={`${inputBaseStyle(isError ? "carmine" : "primary")} ${
+          inputBlockSizeStyle[blockSize]
+        } ${className ?? ""}`}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
 
 export { Input, type InputProps };
