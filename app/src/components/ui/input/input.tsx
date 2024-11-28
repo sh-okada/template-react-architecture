@@ -3,20 +3,26 @@ import {
   InputProps as HeadlessuiInputProps,
 } from "@headlessui/react";
 import React from "react";
+import { Field } from "../field";
+import { Label } from "../label";
+import { Maybe } from "../maybe";
+import { HelperText } from "../helper-text";
 
 type InputBlockSize = "lg" | "md" | "sm";
 
-const inputBaseStyle = (color: "primary" | "carmine") => `
+const inputBaseStyle = `
   rounded-lg
   bg-white
   text-base
   px-4
   py-3
   border
-  border-${color}-600
+  border-primary-600
   focus:outline-none
-  data-[focus]:border-${color}-800
-  data-[disabled]:border-${color}-200
+  data-[focus]:border-priamry-800
+  data-[disabled]:border-priamry-200
+  data-[invalid]:border-carmine-600
+  data-[invalid]:data-[focus]:border-carmine-800
 `;
 
 const inputBlockSizeStyle: { [key in InputBlockSize]: string } = {
@@ -32,20 +38,41 @@ const inputBlockSizeStyle: { [key in InputBlockSize]: string } = {
 };
 
 type InputProps = HeadlessuiInputProps & {
+  label?: string;
+  helperText?: string;
   blockSize?: InputBlockSize;
-  isError?: boolean;
+  invalid?: boolean;
 };
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ blockSize = "md", isError = false, className, ...props }, ref) => {
+  (
+    {
+      label,
+      helperText,
+      blockSize = "md",
+      invalid = false,
+      className,
+      ...props
+    },
+    ref
+  ) => {
     return (
-      <HeadlessuiInput
-        className={`${inputBaseStyle(isError ? "carmine" : "primary")} ${
-          inputBlockSizeStyle[blockSize]
-        } ${className ?? ""}`}
-        ref={ref}
-        {...props}
-      />
+      <Field className="flex flex-col">
+        <Maybe test={label}>
+          <Label>{label}</Label>
+        </Maybe>
+        <HeadlessuiInput
+          className={`${inputBaseStyle} ${inputBlockSizeStyle[blockSize]} ${
+            className ?? ""
+          }`}
+          invalid={invalid}
+          ref={ref}
+          {...props}
+        />
+        <Maybe test={helperText}>
+          <HelperText invalid={invalid}>{helperText}</HelperText>
+        </Maybe>
+      </Field>
     );
   }
 );

@@ -1,15 +1,15 @@
 type HelperTextProps = React.ComponentProps<"p"> & {
-  isError?: boolean;
+  invalid?: boolean;
 };
 
 const HelperText = ({
   className,
-  isError = false,
+  invalid = false,
   ...props
 }: HelperTextProps) => {
   return (
     <p
-      className={`text-xs ${isError ? "text-carmine-600" : ""} ${
+      className={`text-xs ${invalid ? "text-carmine-600" : ""} ${
         className ?? ""
       }`}
       {...props}

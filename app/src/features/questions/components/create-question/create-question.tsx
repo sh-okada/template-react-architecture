@@ -18,7 +18,7 @@ const CreateQuestion = ({ onSubmit }: CreateQuestionProps) => {
     register,
     setValue,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(createQuestionSchema),
     defaultValues: {
@@ -29,21 +29,23 @@ const CreateQuestion = ({ onSubmit }: CreateQuestionProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        className="block mb-5"
-        blockSize="sm"
-        placeholder="タイトル"
-        {...register("title")}
-      />
-      <MarkdownEditor
-        className="mb-5"
-        doc={watch().doc}
-        onChangeDoc={(doc) => {
-          setValue("doc", doc);
-        }}
-        placeholder="..."
-      />
-      <Button type="submit">質問する</Button>
+      <div className="flex flex-col gap-2">
+        <Input
+          blockSize="sm"
+          placeholder="タイトル内容"
+          helperText={errors.title?.message}
+          invalid={Boolean(errors.title)}
+          {...register("title")}
+        />
+        <MarkdownEditor
+          doc={watch().doc}
+          onChangeDoc={(doc) => {
+            setValue("doc", doc);
+          }}
+          placeholder="内容"
+        />
+        <Button type="submit">質問する</Button>
+      </div>
     </form>
   );
 };
