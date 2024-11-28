@@ -11,6 +11,7 @@ import { HelperText } from "../helper-text";
 type InputBlockSize = "lg" | "md" | "sm";
 
 const inputBaseStyle = `
+  block
   rounded-lg
   bg-white
   text-base
@@ -57,7 +58,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <Field className="flex flex-col">
+      <Field>
         <Maybe test={label}>
           <Label>{label}</Label>
         </Maybe>
