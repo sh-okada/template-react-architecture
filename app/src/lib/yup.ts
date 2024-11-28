@@ -2,6 +2,9 @@ import * as yupDefault from "yup";
 import { InferType } from "yup";
 
 yupDefault.setLocale({
+  mixed: {
+    required: ({ label }) => `${label}は必須項目です`,
+  },
   string: {
     length: ({ label, length }) => `${label}は${length}文字入力して下さい`,
     min: ({ label, min }) => `${label}は${min}文字以上入力してください`,
