@@ -53,7 +53,9 @@ const CreateQuestion = ({ onSubmit }: CreateQuestionProps) => {
           }}
           placeholder="内容"
         />
-        <Button type="submit">質問する</Button>
+        <Button size="lg" type="submit">
+          質問する
+        </Button>
       </div>
     </form>
   );
