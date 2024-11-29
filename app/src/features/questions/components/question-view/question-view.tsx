@@ -1,11 +1,11 @@
 import { MarkdownViewer } from "../../../../components/ui/markdown-viewer";
 
 type QuestionViewProps = {
-  doc: string;
+  questionDoc: string;
 };
 
-const QuestionView = ({ doc }: QuestionViewProps) => {
-  return <MarkdownViewer doc={doc} />;
+const QuestionView = ({ questionDoc }: QuestionViewProps) => {
+  return <MarkdownViewer doc={questionDoc} />;
 };
 
 export { QuestionView };
