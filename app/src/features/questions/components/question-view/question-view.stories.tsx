@@ -10,6 +10,6 @@ type Story = StoryObj<typeof QuestionView>;
 
 export const Default: Story = {
   args: {
-    doc: "# Hello World",
+    questionDoc: "# Hello World",
   },
 };
