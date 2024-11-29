@@ -31,6 +31,7 @@ const CreateQuestion = ({ onSubmit }: CreateQuestionProps) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-2">
         <Input
+          className="w-full"
           blockSize="sm"
           placeholder="タイトル内容"
           helperText={errors.title?.message}
@@ -38,6 +39,14 @@ const CreateQuestion = ({ onSubmit }: CreateQuestionProps) => {
           {...register("title")}
         />
         <MarkdownEditor
+          editorStyle={{
+            "&": {
+              minHeight: "500px",
+            },
+            "&.cm-editor": {
+              outline: "none",
+            },
+          }}
           doc={watch().doc}
           onChangeDoc={(doc) => {
             setValue("doc", doc);
