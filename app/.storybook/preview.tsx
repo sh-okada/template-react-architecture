@@ -1,7 +1,10 @@
 import type { Preview } from "@storybook/react";
-import "../src/index.css";
+import { BrowserRouter } from "react-router";
 
-const preview: Preview = {
+import "../src/index.css";
+import React from "react";
+
+export const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
@@ -13,4 +16,10 @@ const preview: Preview = {
   tags: ["autodocs"],
 };
 
-export default preview;
+export const decorators = [
+  (Story) => (
+    <BrowserRouter>
+      <Story />
+    </BrowserRouter>
+  ),
+];
